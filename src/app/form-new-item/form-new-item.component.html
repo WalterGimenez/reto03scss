@@ -1,0 +1,14 @@
+<form action="">
+    <div class="row align-items-center">
+        <div class="col auto">
+            <label for="Nuevo Item" class="col-form label">Nueva {{ etiqueta }}</label>
+        </div>
+        <div class="col auto">
+            <input type="text" id="nuevoItem" class="form-control" #nuevo>
+        </div>
+        <div class="col auto">
+            <button (click)="agregarNuevo(nuevo.value)"  type="button" class="btn" [ngClass]="[nombreClase]">Agregar {{ etiqueta }}</button>
+        </div>
+    </div>
+</form>
+<p>Contador: {{ counterRender() }}</p>

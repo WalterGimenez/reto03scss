@@ -1,32 +1,20 @@
-
-<p>{{ title }}</p>
-<p>Resultado de (5 - 2) = {{ 5 - 2 }}</p>
-
-<img src="{{ url }}" alt="dibujo Optimus Prime"><br>
-<p *ngIf="name">Mi nombre es {{ name }}</p>
-<input type ="text" [(ngModel)] = "name" placeholder="Ingrese un nombre">
-
-
-<ul *ngFor="let ciudad of ciudades">
-    <li [ngClass]="'seleccionado azul'">{{ciudad}}</li>
-</ul>
-
-
-<ul *ngFor="let ciudad of ciudades">
-    <li [ngClass]="{'seleccionado': ciudad === 'Misiones', 'azul':ciudad != 'Misiones' }">{{ciudad}}</li>
-</ul>
-
-<ul *ngFor="let ciudad of ciudades">
-    <li [ngStyle]="{'color': 'red', 'background-color': ciudad === 'Chaco'? 'noseleccionado' : 'green' }">{{ciudad}}</li>
-</ul>
-
-
-<ul *ngFor="let ciudad of ciudades">
-    <li (click)="ciudadClick(ciudad)" [ngClass]="{'seleccionado': ciudad === seleccion, 'noseleccionado': ciudad === noseleccion }">{{ciudad}}</li>
-</ul>
-
-<div *ngIf = 'seleccion'>
-  <p >La ciudad seleccionada es: {{ seleccion }}</p>
-  <app-button (click)="borraSeleccion()" [color] ="'blue'" [label]="'Borrar Selección'"></app-button>
-  
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 my-3">
+            <app-form-new-item (nuevoItemEvento)="agregaCiudad($event)" [etiqueta] = "'Ciudad'" [nombreClase] = "'btn-dark'"></app-form-new-item>
+        </div>
+        <hr>
+        <div class="col-md-8">
+            <ul  *ngFor="let ciudad of ciudades">
+                <app-ciudad (ciudadClikEvento)="ciudadClick($event)" [ciudad]="ciudad" [seleccion]="seleccion" [noseleccion]     ="noseleccion">
+                </app-ciudad>
+            </ul>
+        </div>
+        <div class ="col-md-4">
+            <div *ngIf='seleccion'>
+                <p>La ciudad seleccionada es: {{ seleccion }}</p>
+                <app-button class="button" (click)="borraSeleccion()" [color]="'blue'" [label]="'Borrar Selección'"></app-button>
+            </div>
+        </div>          
+    </div>
 </div>
