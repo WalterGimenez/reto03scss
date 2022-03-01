@@ -1,0 +1,32 @@
+<pre>{{ contactForm.value | json }}</pre>
+<h1>Contacto</h1>
+<form (ngSubmit) = "presiono(contactForm.value)" #contactForm = "ngForm">
+    <div class="mb-4">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id= "name" name="name" [(ngModel)] = "datos.name" requiered #nombre="ngModel">
+        <div [hidden] = "nombre.valid || nombre.pristine" class="alert alert-danger">El campo es requerido</div>
+    </div>
+    <div class="mb-4" form-ckeck>
+        <label for="mayorEdad" class="form-label">¿Eres mayor de 18 años?</label>
+        <input type="checkbox" name="mayorEdad" class="form-ckeck-input" id= "mayorEdad" [(ngModel)] = "datos.mayorEdad" requiered #mayor = "ngModel">
+        <div [hidden] = "mayor.valid || mayor.pristine" class="alert alert-danger">El campo es requerido</div>
+    </div>
+    <div class="mb-4">
+        <label for="departamento" class="form-label">Departamento</label>
+        <select name="departamento" id="departamento" class="form-select-form-select-sm" [(ngModel)] = "datos.departamento" >
+            <option selected>Abra este menú</option>
+            <option value="marketing">Marqueting</option>
+            <option value="ventas">Ventas</option>
+            <option value="otros">Otros</option>
+        </select>
+       
+    </div>
+    <div class="mb-4">
+        <label for="comentario" class="form-label">Comentario</label>
+        <textarea class="form-control" name="comment" id="comment"  rows = "4" placeholder="Deje un comentario...."  [(ngModel)] = "datos.comment" requiered #campo = "ngModel"></textarea>
+        <div [hidden] = "campo.valid || campo.pristine" class="alert alert-danger">El campo es requerido</div>
+    </div>
+    <div class="d-grid gap-2 col-4 float-end">
+        <button type="submit" class="btn btn-primary btn-lg" [disabled] = "contactForm.invalid">Enviar</button>
+    </div>
+</form>
