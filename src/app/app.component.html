@@ -1,15 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12 my-3">
+        <div class="col-md-6 my-3">
             <app-form-new-item (nuevoItemEvento)="agregaCiudad($event)" [etiqueta] = "'Ciudad'" [nombreClase] = "'btn-dark'"></app-form-new-item>
         </div>
+        <div class="col md-6 my-3">
+            <input type="text" class="form-control" placeholder="Búsqueda" [(ngModel)] ="criterio">
+        </div>   
         <hr>
         <div class="col-md-8">
-            <ul  *ngFor="let ciudad of ciudades">
-                <app-ciudad (ciudadClikEvento)="ciudadClick($event)" [ciudad]="ciudad" [seleccion]="seleccion" [noseleccion]     ="noseleccion">
+            <ul>
+                <app-ciudad *ngFor="let ciudad of (ciudades | filter: criterio)"  (ciudadClikEvento)="ciudadClick($event)" [ciudad]="ciudad" [seleccion]="seleccion" [noseleccion]     ="noseleccion">
                 </app-ciudad>
             </ul>
         </div>
+        
         <div class ="col-md-4">
             <div *ngIf='seleccion'>
                 <p>La ciudad seleccionada es: {{ seleccion }}</p>

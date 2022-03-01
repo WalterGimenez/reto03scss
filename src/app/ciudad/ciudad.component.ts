@@ -1,12 +1,11 @@
-import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-ciudad',
-  template: `
-                <li (click)="ciudadClick(ciudad)" [ngClass]="{'alert alert-info': ciudad === seleccion, 'noseleccionado': ciudad === noseleccion }">{{ciudad}}</li>
-            <p>Contador: {{ counterRender() }}</p>`,
+  template: `   <li (click)="ciudadClick(ciudad)" [ngClass]="{'alert alert-info': ciudad === seleccion,            'noseleccionado': ciudad === noseleccion }">{{ciudad | titlecase}}
+                </li>`,
   styleUrls: ['./ciudad.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  
 })
 export class CiudadComponent {
 
@@ -18,8 +17,5 @@ export class CiudadComponent {
   ciudadClick(ciudad: string):void{
     this.ciudadClikEvento.emit(ciudad);
   }
-  counterRender(): boolean{
-    console.log("Render Ciudades");
-    return true;
-  }
+  
 }

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ButtonComponent } from './button/button.component';
 import { FormNewItemComponent } from './form-new-item/form-new-item.component';
 import { CiudadComponent } from './ciudad/ciudad.component';
+import { FilterPipe} from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     FormNewItemComponent,
-    CiudadComponent
+    CiudadComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
