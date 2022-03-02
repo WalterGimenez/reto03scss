@@ -3,12 +3,12 @@
 <form (ngSubmit) = "presiono(contactForm.value)" #contactForm = "ngForm">
     <div class="mb-4">
         <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id= "name" name="name" [(ngModel)] = "datos.name" requiered #nombre="ngModel">
+        <input type="text" class="form-control" id= "name" name="name" [(ngModel)] = "datos.name" required #nombre="ngModel">
         <div [hidden] = "nombre.valid || nombre.pristine" class="alert alert-danger">El campo es requerido</div>
     </div>
     <div class="mb-4" form-ckeck>
         <label for="mayorEdad" class="form-label">¿Eres mayor de 18 años?</label>
-        <input type="checkbox" name="mayorEdad" class="form-ckeck-input" id= "mayorEdad" [(ngModel)] = "datos.mayorEdad" requiered #mayor = "ngModel">
+        <input type="checkbox" name="mayorEdad" class="form-ckeck-input" id= "mayorEdad" [(ngModel)] = "datos.mayorEdad" required #mayor = "ngModel">
         <div [hidden] = "mayor.valid || mayor.pristine" class="alert alert-danger">El campo es requerido</div>
     </div>
     <div class="mb-4">
@@ -23,7 +23,7 @@
     </div>
     <div class="mb-4">
         <label for="comentario" class="form-label">Comentario</label>
-        <textarea class="form-control" name="comment" id="comment"  rows = "4" placeholder="Deje un comentario...."  [(ngModel)] = "datos.comment" requiered #campo = "ngModel"></textarea>
+        <textarea class="form-control" name="comment" id="comment"  rows = "4" placeholder="Deje un comentario...."  [(ngModel)] = "datos.comment" required #campo = "ngModel"></textarea>
         <div [hidden] = "campo.valid || campo.pristine" class="alert alert-danger">El campo es requerido</div>
     </div>
     <div class="d-grid gap-2 col-4 float-end">
