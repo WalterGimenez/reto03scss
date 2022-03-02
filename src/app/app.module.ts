@@ -10,6 +10,9 @@ import { CiudadComponent } from './ciudad/ciudad.component';
 import { FilterPipe} from './pipe/filter.pipe';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ContactoReactivoComponent } from './contacto-reactivo/contacto-reactivo.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -19,13 +22,15 @@ import { ContactoReactivoComponent } from './contacto-reactivo/contacto-reactivo
     CiudadComponent,
     FilterPipe,
     ContactoComponent,
-    ContactoReactivoComponent
+    ContactoReactivoComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

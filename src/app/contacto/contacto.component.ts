@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-interface ContactForm
+interface contactForm
 {
   "name": string;
   "mayorEdad": boolean;
