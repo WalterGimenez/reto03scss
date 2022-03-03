@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 interface contactForm
 {
   "name": string;
@@ -12,7 +13,8 @@ interface contactForm
   styleUrls: ['./contacto.component.scss']
 })
 export class ContactoComponent implements OnInit {
-  
+  id!: string;
+
   datos = {
     name: "",
     mayorEdad: false,
@@ -20,9 +22,12 @@ export class ContactoComponent implements OnInit {
     comment: ""
   };
 
-  constructor() { }
+  constructor(private readonly route: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = params["id"];
+    })
   }
 
   presiono(values : any): void {

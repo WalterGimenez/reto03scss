@@ -12,6 +12,10 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ContactoReactivoComponent } from './contacto-reactivo/contacto-reactivo.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
+import { UserComponent } from './users/user/user.component';
+import { DetailsComponent } from './users/details/details.component';
+import { ListComponent } from './users/list/list.component';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     ContactoComponent,
     ContactoReactivoComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    PaginaNoEncontradaComponent,
+    UserComponent,
+    DetailsComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-contacto-reactivo',
@@ -11,9 +11,17 @@ export class ContactoReactivoComponent implements OnInit {
   contactForm!: FormGroup;
   
 
-  constructor(private readonly fb:FormBuilder) { }
+  constructor(private readonly fb:FormBuilder,
+     private readonly ruta: ActivatedRoute) { }
+
+  name!: string;
 
   ngOnInit(): void {
+    this.ruta.queryParams.subscribe(
+      (params: Params) =>{
+        this.name = params["name"]
+      }
+    )
     this.contactForm = this.initForm();
     //this.onPathValue();
   }
