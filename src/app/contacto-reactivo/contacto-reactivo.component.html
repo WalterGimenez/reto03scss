@@ -1,3 +1,4 @@
+<pre>{{ departamento }}</pre>
 <h1>Contacto Reactivo  {{name}}</h1>
 <form [formGroup] = "contactForm" (ngSubmit)="presiono()" >
     <div class="mb-4">
@@ -19,9 +20,9 @@
         <label for="departamento" class="form-label">Departamento</label>
         <select name="departamento" id="departamento" class="form-select-form-select-sm"formControlName = "departamento">
             <option selected>Abra este menú</option>
-            <option value="marketing">Marqueting</option>
-            <option value="ventas">Ventas</option>
-            <option value="otros">Otros</option>
+            <option *ngFor="let departa of departamento" [value]="departa">{{departa}}</option>
+            <!--<option value="ventas">Ventas</option>
+            <option value="otros">Otros</option>-->
         </select>
 
     </div>

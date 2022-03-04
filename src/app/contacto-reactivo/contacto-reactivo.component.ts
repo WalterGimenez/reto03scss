@@ -9,6 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ContactoReactivoComponent implements OnInit {
   contactForm!: FormGroup;
+  departamento: string [] = [];
   
 
   constructor(private readonly fb:FormBuilder,
@@ -17,6 +18,8 @@ export class ContactoReactivoComponent implements OnInit {
   name!: string;
 
   ngOnInit(): void {
+    this.departamento = this.ruta.snapshot.data['departamento']
+
     this.ruta.queryParams.subscribe(
       (params: Params) =>{
         this.name = params["name"]
